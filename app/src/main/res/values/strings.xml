@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">Tic-Tac-Game</string>
-
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="app_name">Tic Tac Toe</string>
+    <string name="help_text">In auctor tortor ac purus pellentesque euismod.
+        Suspendisse sit amet diam mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+        Suspendisse ut ante scelerisque, imperdiet felis non, convallis orci. Ut dapibus nisi et odio blandit,
+        eget aliquet nulla consectetur. Aenean auctor ultricies pretium. Duis porttitor elit lectus, vel elementum velit ornare vitae.
+        Nullam malesuada quis nunc imperdiet mollis. Etiam placerat mi lorem, id vestibulum massa semper nec. Etiam sit amet tempus massa,
+        nec facilisis sem. Aliquam augue tortor, ultrices sit amet imperdiet nec,
+        interdum eu dui. Etiam varius hendrerit blandit. Maecenas odio ipsum, sodales id mi ac, posuere ultrices ipsum.</string>
 </resources>
