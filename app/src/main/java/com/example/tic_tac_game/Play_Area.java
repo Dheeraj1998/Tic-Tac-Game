@@ -1,5 +1,6 @@
 package com.example.tic_tac_game;
 
+import android.os.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.Random;
 
 public class Play_Area extends Activity {
     int player_tag = 1;
@@ -79,6 +81,24 @@ public class Play_Area extends Activity {
         finish();
     }
 
+    public void stupid_ai(){
+        Random rand = new Random();
+        String image_id;
+        int int_image_id;
+
+        while(true) {
+            int row_num = rand.nextInt(3);
+            int col_num = rand.nextInt(3);
+
+            if(game_board[row_num][col_num] < 0){
+                image_id = "image_" + row_num + col_num;
+                int_image_id = getResources().getIdentifier(image_id, "id", getPackageName());
+                play_game(findViewById(int_image_id));
+                break;
+            }
+        }
+    }
+
     public void play_game(View view){
         ImageView temp = (ImageView) view;
         TextView temp_text = (TextView) findViewById(R.id.player_hint);
@@ -102,8 +122,22 @@ public class Play_Area extends Activity {
             }
 
             else {
+                //Check if the game-type selected is AI or 2-player
+                String game_type = getIntent().getStringExtra("game_type");
                 player_tag = 2;
                 temp_text.setText("Player#" + player_tag + " has to play!");
+
+                if(game_type.equals("stupid_ai")){
+                    temp_text.setText("AI is thinking :)");
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            stupid_ai();
+                        }
+                    }, 1500);
+
+                }
             }
         }
 
@@ -256,16 +290,89 @@ public class Play_Area extends Activity {
     public void game_end_win(){
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Player #" + player_tag + " Won!", Snackbar.LENGTH_LONG);
         snackbar.show();
+
         flag = 0;
         game_end_flag = 1;
-        initialize_board(findViewById(android.R.id.content));
+        disable_play_area();
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                enable_play_area();
+                initialize_board(findViewById(android.R.id.content));
+            }
+        }, 3000);
     }
 
     public void game_end_draw(){
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "It is a draw!", Snackbar.LENGTH_LONG);
         snackbar.show();
+
         flag = 0;
         game_end_flag = 1;
-        initialize_board(findViewById(android.R.id.content));
+        disable_play_area();
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                enable_play_area();
+                initialize_board(findViewById(android.R.id.content));
+            }
+        }, 3000);
+    }
+
+    public void disable_play_area(){
+        ImageView image_00 = (ImageView) findViewById(R.id.image_00);
+        ImageView image_01 = (ImageView) findViewById(R.id.image_01);
+        ImageView image_02 = (ImageView) findViewById(R.id.image_02);
+
+        ImageView image_10 = (ImageView) findViewById(R.id.image_10);
+        ImageView image_11 = (ImageView) findViewById(R.id.image_11);
+        ImageView image_12 = (ImageView) findViewById(R.id.image_12);
+
+        ImageView image_20 = (ImageView) findViewById(R.id.image_20);
+        ImageView image_21 = (ImageView) findViewById(R.id.image_21);
+        ImageView image_22 = (ImageView) findViewById(R.id.image_22);
+
+        image_00.setEnabled(false);
+        image_01.setEnabled(false);
+        image_02.setEnabled(false);
+
+        image_10.setEnabled(false);
+        image_11.setEnabled(false);
+        image_12.setEnabled(false);
+
+        image_20.setEnabled(false);
+        image_21.setEnabled(false);
+        image_22.setEnabled(false);
+    }
+
+    public void enable_play_area(){
+        ImageView image_00 = (ImageView) findViewById(R.id.image_00);
+        ImageView image_01 = (ImageView) findViewById(R.id.image_01);
+        ImageView image_02 = (ImageView) findViewById(R.id.image_02);
+
+        ImageView image_10 = (ImageView) findViewById(R.id.image_10);
+        ImageView image_11 = (ImageView) findViewById(R.id.image_11);
+        ImageView image_12 = (ImageView) findViewById(R.id.image_12);
+
+        ImageView image_20 = (ImageView) findViewById(R.id.image_20);
+        ImageView image_21 = (ImageView) findViewById(R.id.image_21);
+        ImageView image_22 = (ImageView) findViewById(R.id.image_22);
+
+        image_00.setEnabled(true);
+        image_01.setEnabled(true);
+        image_02.setEnabled(true);
+
+        image_10.setEnabled(true);
+        image_11.setEnabled(true);
+        image_12.setEnabled(true);
+
+        image_20.setEnabled(true);
+        image_21.setEnabled(true);
+        image_22.setEnabled(true);
     }
 }
+

@@ -29,8 +29,7 @@ public class MainActivity extends Activity {
     }
 
     public void openPlayArea(View v){
-        Intent play_area = new Intent(MainActivity.this, Play_Area.class);
-        startActivity(play_area);
-        finish();
+        custom_dialog_box cdb = new custom_dialog_box(MainActivity.this);
+        cdb.show();
     }
 }
