@@ -1,10 +1,7 @@
 <resources>
     <string name="app_name">Tic Tac Toe</string>
-    <string name="help_text">In auctor tortor ac purus pellentesque euismod.
-        Suspendisse sit amet diam mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-        Suspendisse ut ante scelerisque, imperdiet felis non, convallis orci. Ut dapibus nisi et odio blandit,
-        eget aliquet nulla consectetur. Aenean auctor ultricies pretium. Duis porttitor elit lectus, vel elementum velit ornare vitae.
-        Nullam malesuada quis nunc imperdiet mollis. Etiam placerat mi lorem, id vestibulum massa semper nec. Etiam sit amet tempus massa,
-        nec facilisis sem. Aliquam augue tortor, ultrices sit amet imperdiet nec,
-        interdum eu dui. Etiam varius hendrerit blandit. Maecenas odio ipsum, sodales id mi ac, posuere ultrices ipsum.</string>
+    <string name="help_text">The usual rules of Tic Tac Toe apply here : <u><i>3 in a line to win</i></u>.\n\n
+        Choose <b>2 Player</b> in case you want to play with a friend on the same device.\n
+        Choose <b>Stupid AI</b> to try your luck against a stupid AI which will put up no fight.
+    </string>
 </resources>

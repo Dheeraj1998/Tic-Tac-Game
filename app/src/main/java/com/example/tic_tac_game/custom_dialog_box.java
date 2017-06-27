@@ -45,13 +45,11 @@ public class custom_dialog_box extends Dialog implements
             case R.id.two_player:
                 play_area.putExtra("game_type","two_player");
                 c.startActivity(play_area);
-                c.finish();
                 break;
 
             case R.id.stupid_ai:
                 play_area.putExtra("game_type","stupid_ai");
                 c.startActivity(play_area);
-                c.finish();
                 break;
 
             default:

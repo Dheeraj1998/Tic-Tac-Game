@@ -14,7 +14,7 @@ import java.util.Random;
 public class Play_Area extends Activity {
     int player_tag = 1;
     int[][] game_board = new int[3][3];
-    int flag = 0, game_end_flag = 0;
+    int flag = 0, game_end_flag = 0, int_game_type = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +75,6 @@ public class Play_Area extends Activity {
         temp_text.setText("Player#" + player_tag + " has to play!");
     }
 
-    public void openMainPage(View v){
-        Intent main_page = new Intent(Play_Area.this, MainActivity.class);
-        startActivity(main_page);
-        finish();
-    }
-
     public void stupid_ai(){
         Random rand = new Random();
         String image_id;
@@ -128,6 +122,8 @@ public class Play_Area extends Activity {
                 temp_text.setText("Player#" + player_tag + " has to play!");
 
                 if(game_type.equals("stupid_ai")){
+                    int_game_type = 1;
+
                     temp_text.setText("AI is thinking :)");
                     final Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
@@ -288,8 +284,22 @@ public class Play_Area extends Activity {
     }
 
     public void game_end_win(){
-        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Player #" + player_tag + " Won!", Snackbar.LENGTH_LONG);
-        snackbar.show();
+        if(int_game_type == 1){
+            if(player_tag == 1){
+                Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "You won ;)", Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+
+            else{
+                Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "You lost :(", Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+        }
+
+        else {
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Player #" + player_tag + " Won!", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
 
         flag = 0;
         game_end_flag = 1;

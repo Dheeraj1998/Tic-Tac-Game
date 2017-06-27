@@ -11,11 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="openMainPage"
-            android:text="GO BACK" />
 
         <TextView
             android:id="@+id/player_hint"
@@ -27,9 +22,11 @@
             android:text="Player#1 has to play!"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="15sp"/>
+            android:textSize="20sp"/>
 
         <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="initialize_board"
