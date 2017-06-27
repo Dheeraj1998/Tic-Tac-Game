@@ -27,4 +27,10 @@ public class MainActivity extends Activity {
         startActivity(help_page);
         finish();
     }
+
+    public void openPlayArea(View v){
+        Intent play_area = new Intent(MainActivity.this, Play_Area.class);
+        startActivity(play_area);
+        finish();
+    }
 }

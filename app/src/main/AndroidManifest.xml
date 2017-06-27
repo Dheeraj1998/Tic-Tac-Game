@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Help_Page"></activity>
+        <activity android:name=".Help_Page" />
+        <activity android:name=".Play_Area"></activity>
     </application>
 
 </manifest>
